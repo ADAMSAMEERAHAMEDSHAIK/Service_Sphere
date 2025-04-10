@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mechnical Web Page</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./mech.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="heading">
+        <div class="imgpart"></div>
+        <div class="description">
+          <div class="description1"><a>Service</a> Sphere</div>
+          <div class="description2"><p>Meets Your Requirements Faster</p></div>
+        </div>
+      </div>
+
+      <!-- -----Section1---------- -- Up-->
+
+      <!-- /*Section */ -->
+
+      <div class="section">
+        <div class="section1">
+          <div class="section1col"></div>
+        </div>
+
+        <!-- ----------Section2--------------  Down -->
+
+        <div class="section2">
+          <div class="section2col"></div>
+        </div>
+      </div>
+
+      <div class="middle">
+        <div class="buttonfirst">
+          <div class="user" onclick="displayUserRentals()">User</div>
+          <div class="Mechanic" onclick="displayMechSection()">
+            <a href="#section3">Mechanic</a>
+          </div>
+        </div>
+
+        <div class="parent1">
+          <div class="seraching">
+            <div class="icon1">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="inputfield">
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Search the City"
+                size="56"
+              />
+            </div>
+
+            <div class="Search" onclick="searchCity()">Search</div>
+          </div>
+
+          <div class="container"></div>
+        </div>
+      </div>
+
+      <!-- ---------------------------------------Section 3---------------------------------------- -->
+
+      <div id="section3">
+        <!-- ---------------------Section 3 Heading------------------------ -->
+        <div class="heading2">
+          <div class="descriptionb">
+            <div class="description11"><a>Service</a> Sphere</div>
+            <div class="description22">
+              <p>Meets Your Requirements Faster</p>
+            </div>
+          </div>
+          <div class="imgpart"></div>
+        </div>
+
+        <div class="sectionb">
+          <div class="section11">
+            <div class="section11col"></div>
+          </div>
+
+          <!-- ----------Section2--------------  Down -->
+
+          <div class="section22">
+            <div class="section22col"></div>
+          </div>
+        </div>
+
+        <div class="middletwo">
+          <div class="form-box">
+            <div class="button-box">
+              <div id="btn"></div>
+              <button type="button" class="toggle-btn" onclick="iForm()">
+                Add
+              </button>
+              <button type="button" class="toggle-btn" onclick="rForm()">
+                Remove
+              </button>
+            </div>
+
+            <form id="inputForm" class="input-group">
+              <input
+                type="text"
+                id="ownerName"
+                class="input-field"
+                name="ownerName"
+                required
+                placeholder="Enter Owner Name"
+              />
+
+              <input
+                type="number"
+                id="rentPerMonth"
+                class="input-field"
+                name="rentPerMonth"
+                required
+                placeholder="Enter Charges Per Hour"
+              />
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="input-field"
+                required
+                placeholder="Enter Valid Email Id"
+              />
+
+              <input
+                type="text"
+                id="location"
+                name="location"
+                class="input-field"
+                required
+                placeholder="Enter Location"
+              />
+
+              <input
+                type="file"
+                id="image"
+                name="image"
+                class="input-field"
+                accept="image/*"
+                required
+              />
+
+              <button type="submit" class="submit-btn">Add</button>
+            </form>
+
+            <form id="removeForm" class="input-group">
+              <input
+                type="text"
+                id="cityRemove"
+                class="input-field"
+                name="cityRemove"
+                placeholder="Enter city name"
+                required
+              />
+              <input
+                type="email"
+                class="input-field"
+                id="emailRemove"
+                name="emailRemove"
+                placeholder="Enter owner's email"
+              />
+              <input type="checkbox" class="check-box" /><span
+                >I agree to the terms & conditions</span
+              >
+              <button type="submit" class="submit-btn">Remove</button>
+            </form>
+            <!-- <button onclick="logout()">LogOut</button> -->
+          </div>
+        </div>
+      </div>
+      <!-- Section 3  Ending-->
+    </div>
+  </body>
+  <script
+    type="text/javascript"
+    src="//code.jquery.com/jquery-1.11.0.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+  ></script>
+
+  <script src="./mech.js"></script>
+</html>

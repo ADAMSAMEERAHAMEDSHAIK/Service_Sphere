@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <link rel="stylesheet" href="./index.css" />
+    <title>Service Sphere</title>
+  </head>
+  <body>
+    <div id="part1">
+      <div class="a">
+        <div class="a_first">
+          <i class="fa-brands fa-pied-piper"></i>
+
+          <p>Service Sphere</p>
+        </div>
+        <div class="a_three">
+          <i class="fa-solid fa-bars" onclick="funi('selectclass')"> </i>
+          <div class="selectclass">
+            <div class="select1">Home</div>
+            <div class="select1">About Us</div>
+            <div class="select1">Service</div>
+            <div class="select1">Review</div>
+            <div class="select1">Know More</div>
+            <div class="select1">Contact US</div>
+            <div class="select1" onclick="funii('selectclass')">Close</div>
+          </div>
+        </div>
+        <div class="a_second">
+          <div class="option">
+            <a href="#part1" onmouseenter="fun()" onmouseleave="fun_a()"
+              >Home</a
+            >
+            <!-- <p>Home</p> -->
+            <span></span>
+          </div>
+
+          <div class="option">
+            <a href="#section2" onmouseenter="fun1()" onmouseleave="fun_1()"
+              >Services</a
+            >
+            <span></span>
+          </div>
+
+          <div class="option">
+            <a href="#section3" onmouseenter="fun2()" onmouseleave="fun_2()"
+              >Review</a
+            >
+            <span></span>
+          </div>
+
+          <div class="option">
+            <a onmouseenter="fun3()" onmouseleave="fun_3()">Help</a>
+            <span></span>
+          </div>
+
+          <div class="option">
+            <a onmouseenter="fun4()" onmouseleave="fun_4()">Contact</a>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmain">
+        <div class="b">
+          <div class="bmatter">
+            <div class="bmatter1 same"><span>Service</span> Sphere</div>
+            <div class="bmatter4">
+              <p>Service Beyond <span>Expectation..!</span></p>
+            </div>
+            <div class="bmatter2 same">
+              In today's dynamic environment, providing all-inclusive services
+              means delivering a spectrum of offerings that cater to the diverse
+              needs of clients. Our approach ensures that each service is
+              rendered with utmost professionalism, efficiency, and personalized
+              attention.By offering a comprehensive suite of services, we aim to
+              be a one-stop solution for all client needs.
+            </div>
+
+            <div class="bmatter3">
+              <div class="bmatter31 same2">Check Out</div>
+              <div class="bmatter32 same2">Learn More</div>
+            </div>
+          </div>
+        </div>
+        <div class="b2">
+          <!-- <div class="btext"> -->
+          <!-- <div class="btext1"><i class="fa-solid fa-caret-right"></i></div>
+         
+            <div class="btext2"><i class="fa-solid fa-caret-left"></i></div> -->
+          <!-- </div> -->
+          <div class="bround">
+            <div class="object object1">
+              <a href="#section2"><img src="./images/House2.jpeg" /></a>
+            </div>
+            <div class="object object2">
+              <a href="#section2"><img src="./images/Mech.jpeg" /></a>
+            </div>
+            <div class="object object3">
+              <a href="#section2"><img src="./images/Doct.jpeg" /></a>
+            </div>
+            <div class="object object4">
+              <a href="#section2"><img src="./images/Car.jpeg" /></a>
+            </div>
+            <div class="central">
+              <img src="./images/Sectoioncent-removebg.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+
+    <div id="section2">
+      <!-- MAIN -->
+      <div id="slider" class="slider">
+        <!-- SLIDE 1 -->
+        <div class="row fullheight slide">
+          <div class="col-6 fullheight">
+            <!-- PRODUCT INFO -->
+            <div class="product-info">
+              <div class="info-wrapper">
+                <div class="product-price left-to-right">
+                  <p>Service Sphere</p>
+                </div>
+                <div class="product-name left-to-right">
+                  <p>Fix My Ride</p>
+                </div>
+                <div class="product-description left-to-right">
+                  <p>
+                    In this fast moving world with amazing technology, everyone
+                    is using Smartphone. The proposed application helps us to
+                    find mechanical services easily and quickly. It is difficult
+                    to find mechanical services nearby area wherever you are
+                    travelling.
+                  </p>
+                </div>
+                <div class="button left-to-right">
+                  <a href="./mech.html">Explore More</a>
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT INFO -->
+          </div>
+          <div
+            class="col-6 fullheight img-col"
+            style="
+              background-image: linear-gradient(to top right, #2db4cf, #2bcbc5);
+            "
+          >
+            <!-- PRODUCT IMAGE -->
+            <div class="product-img">
+              <div class="img-wrapper right-to-left">
+                <div class="bounce">
+                  <img src="./images/mechanic.png" />
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT IMAGE -->
+          </div>
+        </div>
+        <!-- END SLIDE 1 -->
+
+        <!-- SLIDE 2 -->
+        <div class="row fullheight slide">
+          <div class="col-6 fullheight">
+            <!-- PRODUCT INFO -->
+            <div class="product-info">
+              <div class="info-wrapper">
+                <div class="product-price left-to-right">
+                  <p>Service Sphere</p>
+                </div>
+                <div class="product-name left-to-right">
+                  <p>Cozy Home</p>
+                </div>
+
+                <div class="product-description left-to-right">
+                  <p>
+                    Finding the perfect place to call home has never been
+                    easier! At Your Home Finder, we are dedicated to making your
+                    house-hunting experience smooth, enjoyable, and hassle-free.
+                    Whether you're looking for a cozy apartment in the city, a
+                    spacious suburban home,
+                  </p>
+                </div>
+                <div class="button left-to-right">
+                  <a href="./House.html">Explore More</a>
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT INFO -->
+          </div>
+          <div
+            class="col-6 fullheight img-col"
+            style="
+              background-image: linear-gradient(to top right, #2db4cf, #2bcbc5);
+            "
+          >
+            <!-- PRODUCT IMAGE -->
+            <div class="product-img">
+              <div class="img-wrapper right-to-left">
+                <div class="bounce">
+                  <img src="./images/house[new].png" />
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT IMAGE -->
+          </div>
+        </div>
+        <!-- END SLIDE 2 -->
+
+        <!-- SLIDE 3 -->
+        <div class="row fullheight slide">
+          <div class="col-6 fullheight">
+            <!-- PRODUCT INFO -->
+            <div class="product-info">
+              <div class="info-wrapper">
+                <div class="product-price left-to-right">
+                  <p>Service Sphere</p>
+                </div>
+                <div class="product-name left-to-right">
+                  <p>Car Connect</p>
+                </div>
+                <div class="product-description left-to-right">
+                  <p>
+                    The technology allows electric vehicles to communicate with
+                    the power grid. This technology allows for two-way energy
+                    flow; not only can EVs draw energy from the power grid to
+                    charge their batteries, but they can also send energy back
+                    to the grid from their batteries when needed.
+                  </p>
+                </div>
+                <div class="button left-to-right">
+                  <a>Explore More</a>
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT INFO -->
+          </div>
+          <div
+            class="col-6 fullheight img-col"
+            style="
+              background-image: linear-gradient(to top right, #2db4cf, #2bcbc5);
+            "
+          >
+            <!-- PRODUCT IMAGE -->
+            <div class="product-img">
+              <div class="img-wrapper right-to-left">
+                <div class="bounce">
+                  <img src="./images/car4.png" />
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT IMAGE -->
+          </div>
+        </div>
+        <!-- END SLIDE 3 -->
+
+        <!-- SLIDE 4 -->
+        <div class="row fullheight slide">
+          <div class="col-6 fullheight">
+            <!-- PRODUCT INFO -->
+            <div class="product-info">
+              <div class="info-wrapper">
+                <div class="product-price left-to-right">
+                  <p>Service Sphere</p>
+                </div>
+                <div class="product-name left-to-right">
+                  <p>Care First Medical</p>
+                </div>
+
+                <div class="product-description left-to-right">
+                  <p>
+                    Our service is dedicated to providing comprehensive,
+                    compassionate, and personalized healthcare to individuals
+                    and families. We focus on delivering high-quality medical
+                    care in a friendly and professional environment.
+                  </p>
+                </div>
+                <div class="button left-to-right">
+                  <a>Explore More</a>
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT INFO -->
+          </div>
+          <div
+            class="col-6 fullheight img-col"
+            style="
+              background-image: linear-gradient(to top right, #5fa4bb, #64c5e5);
+            "
+          >
+            <!-- PRODUCT IMAGE -->
+            <div class="product-img">
+              <div class="img-wrapper right-to-left">
+                <div class="bounce">
+                  <img src="./images/Section2[Doct].png" />
+                </div>
+              </div>
+            </div>
+            <!-- END PRODUCT IMAGE -->
+          </div>
+        </div>
+        <!-- END SLIDE 4 -->
+
+        <!-- SLIDE CONTROL -->
+        <div id="slide-control" class="slide-control">
+          <div class="slide-control-item">
+            <img src="./images/Mech.jpeg" />
+          </div>
+          <div class="slide-control-item">
+            <img src="./images/House2.jpeg" />
+          </div>
+          <div class="slide-control-item">
+            <img src="./images/Car.jpeg" />
+          </div>
+          <div class="slide-control-item">
+            <img src="./images/Doct.jpeg" />
+          </div>
+        </div>
+        <!-- END SLIDE CONTROL -->
+      </div>
+      <!-- END MAIN -->
+    </div>
+
+    <!-- ---------------------------------------------Section 4-------------------------------------------- -->
+
+    <div id="section3">
+      <header>
+        <h1>Customer's <span class="review-label">Review</span></h1>
+        <h2>What People Say About Us</h2>
+      </header>
+      <div class="sectioncard">
+        <div class="card">
+          <div class="cardimg">
+            <img src="./images/Section3[Men1].jpg" />
+          </div>
+          <div class="cardrate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star-half-stroke"></i>
+          </div>
+          <div class="carddis">
+            <p>
+              I've had the pleasure of working with Service Sphere on multiple
+              occasions, and every time, the experience has been exceptional.
+              From the initial consultation to the final delivery, demonstrates
+              unparalleled professionalism and attention to detail.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardimg">
+            <img src="./images/Section3[Male].jpg" />
+          </div>
+          <div class="cardrate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="carddis">
+            <p>
+              I've had the pleasure of working with Service Sphere on multiple
+              occasions, and every time, the experience has been exceptional.
+              From the initial consultation to the final delivery, demonstrates
+              unparalleled professionalism and attention to detail.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardimg">
+            <img src="./images/Section3[Female3].avif" />
+          </div>
+          <div class="cardrate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="carddis">
+            <p>
+              I've had the pleasure of working with Service Sphere on multiple
+              occasions, and every time, the experience has been exceptional.
+              From the initial consultation to the final delivery, demonstrates
+              unparalleled professionalism and attention to detail.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -----------------------------------------------------Section 5------------------------------------- -->
+    <div id="#section5">
+      <footer>
+        <div class="footer-container">
+          <div class="social-media">
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.telegram.org" target="_blank"
+              ><i class="fab fa-telegram-plane"></i
+            ></a>
+            <a href="https://www.linkedin.com" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://www.twitter.com" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+          <div class="about-website">
+            <h2 style="color: aqua">About Our Website</h2>
+            <p>
+              This is a demo website footer created to showcase a responsive
+              footer design with animations.
+            </p>
+          </div>
+          <div class="contact-info">
+            <h2 style="color: aqua">Contact Us</h2>
+            <p><i class="fas fa-phone"></i> +123 456 7890</p>
+            <p><i class="fas fa-envelope"></i> info@example.com</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Example Street, City,
+              Country
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
