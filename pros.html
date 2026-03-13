@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServiceSphere — Every Service, One Place</title>
+  <link rel="stylesheet" href="Styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=Syne+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <!-- Cursor -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+  <!-- Grain -->
+  <div id="grain"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">
+      <span><em>Service</em>Sphere</span>
+    </div>
+    
+    <div class="nav-auth-group">
+      <button class="nav-login-btn" onclick="openAuth('signin')" id="navLoginBtn">
+        <i class="fa-solid fa-circle-user"></i> Sign In
+      </button>
+      <!-- Logged-in state (hidden by default) -->
+      <div class="nav-user-pill hidden" id="navUserPill">
+        <div class="nav-user-avatar" id="navUserAvatar">U</div>
+        <span id="navUserName">User</span>
+        <button class="nav-signout-btn" onclick="doSignOut()" title="Sign out"><i
+            class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ PROVIDER ═══ -->
+  <section class="sec provider-sec" id="provider">
+    <div class="prov-inner">
+      <div class="prov-left reveal">
+        <p class="sec-tag">For Professionals</p>
+        <h2 class="sec-title" style="margin-bottom:16px">List Your<br><em>Services</em></h2>
+        <p>Join thousands of verified professionals on ServiceSphere. Reach customers in your city instantly — no
+          commissions, no hassle.</p>
+        <div class="prov-perks">
+          <div class="perk">
+            <i class="fa-solid fa-bolt"></i>
+            <span><strong>Instant Visibility</strong> — Your profile appears in city searches immediately.</span>
+          </div>
+          <div class="perk">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span><strong>Zero Commission</strong> — Customers contact you directly. Keep 100% earnings.</span>
+          </div>
+          <div class="perk">
+            <i class="fa-solid fa-chart-line"></i>
+            <span><strong>Growing Platform</strong> — 30% monthly user growth means more leads for you.</span>
+          </div>
+          <div class="perk">
+            <i class="fa-solid fa-clock"></i>
+            <span><strong>24/7 Presence</strong> — Your listing works for you even when you sleep.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prov-form reveal" style="transition-delay:.15s">
+        <div class="ptabs">
+          <button class="ptab on" id="addTab" onclick="pTab('add')">
+            <i class="fa-solid fa-plus"></i> Register
+          </button>
+          <button class="ptab" id="remTab" onclick="pTab('rem')">
+            <i class="fa-solid fa-trash"></i> Remove
+          </button>
+        </div>
+
+        <!-- ADD -->
+        <form id="addForm" onsubmit="doAdd(event)">
+          <div class="fg-row">
+            <div class="fg">
+              <label>Full Name</label>
+              <input type="text" id="pName" placeholder="Your name" required />
+            </div>
+            <div class="fg">
+              <label>Service Type</label>
+              <select id="pCat" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="mechanic">Mechanic</option>
+                <option value="electrician">Electrician</option>
+                <option value="plumber">Plumber</option>
+                <option value="cleaner">Home Cleaner</option>
+                <option value="carpenter">Carpenter</option>
+                <option value="tutor">Tutor</option>
+                <option value="nurse">Home Nurse</option>
+                <option value="painter">Painter</option>
+                <option value="pest">Pest Control</option>
+                <option value="ac">AC Service</option>
+                <option value="driver">Driver</option>
+                <option value="security">Security</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg-row">
+            <div class="fg">
+              <label>Hourly Rate (₹)</label>
+              <input type="number" id="pRate" placeholder="e.g. 500" required min="1" />
+            </div>
+            <div class="fg">
+              <label>City</label>
+              <input type="text" id="pCity" placeholder="Your city" required />
+            </div>
+          </div>
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" id="pEmail" placeholder="your@email.com" required />
+          </div>
+          <div class="fg">
+            <label>Mobile Number</label>
+            <input type="tel" id="pMobile" placeholder="Enter mobile number" required />
+          </div>
+          <div class="fg">
+            <label>Area / Location</label>
+            <input type="text" id="pLoc" placeholder="Locality, street or landmark" required />
+          </div>
+          <div class="fg">
+            <label>Profile Photo</label>
+            <div class="fdrop" id="fdrop" onclick="document.getElementById('pImg').click()">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span id="fdropLbl">Click to upload your photo</span>
+              <small>JPG or PNG, max 5MB</small>
+            </div>
+            <input type="file" id="pImg" accept="image/*" required style="display:none" onchange="onFile(this)" />
+          </div>
+          <button type="submit" class="submit">
+            <i class="fa-solid fa-circle-plus"></i> Register Listing
+          </button>
+        </form>
+
+        <!-- REMOVE -->
+        <form id="remForm" class="hidden" onsubmit="doRemove(event)">
+          <div class="fg">
+            <label>City Name</label>
+            <input type="text" id="rCity" placeholder="City you registered in" required />
+          </div>
+          <div class="fg">
+            <label>Registered Email</label>
+            <input type="email" id="rEmail" placeholder="Email used at registration" required />
+          </div>
+          <div class="chk-row">
+            <input type="checkbox" id="rChk" required />
+            <label for="rChk">I confirm I want to permanently remove my listing</label>
+          </div>
+          <button type="submit" class="submit danger">
+            <i class="fa-solid fa-trash"></i> Remove Listing
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="foot-logo">
+      <span><em>Service</em>Sphere</span>
+    </div>
+    <p>© 2026 ServiceSphere. Unified services platform. All rights reserved.</p>
+    <div class="foot-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <div id="toast"></div>
+  <script src="Scripts/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServiceSphere — Every Service, One Place</title>
+  <link rel="stylesheet" href="Styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=Syne+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <!-- Cursor -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+  <!-- Grain -->
+  <div id="grain"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">
+      <a href="#"><span><em>Service</em>Sphere</span></a>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#look">Find Pros</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-auth-group">
+      <button class="nav-login-btn" onclick="openAuth('signin')" id="navLoginBtn">
+        <i class="fa-solid fa-circle-user"></i> Sign In
+      </button>
+      <!-- Logged-in state (hidden by default) -->
+      <div class="nav-user-pill hidden" id="navUserPill">
+        <div class="nav-user-avatar" id="navUserAvatar">U</div>
+        <span id="navUserName">User</span>
+        <button class="nav-signout-btn" onclick="doSignOut()" title="Sign out"><i
+            class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-mesh"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-left">
+      <h1 class="hero-title">
+        <span class="l1">Every</span>
+        <span class="l2">Service</span>
+        <span class="l3">One Sphere.</span>
+      </h1>
+      <p class="hero-desc">
+        Unified professional & personal services into a single platform.
+        Reducing access time by <strong>45%</strong> and increasing
+        adoption by <strong>30%</strong>.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" onclick="openAuth('signin')">
+          <i class="fa-solid fa-magnifying-glass"></i> Find a Professional
+        </a>
+        <a href="#services" class="btn-outline">
+          <i class="fa-solid fa-grid-2"></i> Explore Services
+        </a>
+      </div>
+      <div class="hero-ticker">
+        <span>Mechanics</span><span class="sep">·</span>
+        <span>Plumbers</span><span class="sep">·</span>
+        <span>Electricians</span><span class="sep">·</span>
+        <span>Cleaners</span><span class="sep">·</span>
+        <span>Tutors</span><span class="sep">·</span>
+        <span>Nurses</span><span class="sep">·</span>
+        <span>Painters</span><span class="sep">·</span>
+        <span>Carpenters</span><span class="sep">·</span>
+        <span>Drivers</span><span class="sep">·</span>
+        <span>Security</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="vis-wrap">
+        <!-- Rings -->
+        <div class="vis-ring vr1"></div>
+        <div class="vis-ring vr2"></div>
+        <div class="vis-ring vr3"></div>
+        <!-- Center -->
+        <div class="vis-center">
+          <div class="vc-num" id="heroCount">0</div>
+          <div class="vc-lbl">Services</div>
+        </div>
+        <!-- Icons -->
+        <div class="oi oi1"><i class="fa-solid fa-wrench"></i></div>
+        <div class="oi oi2"><i class="fa-solid fa-bolt"></i></div>
+        <div class="oi oi3"><i class="fa-solid fa-droplet"></i></div>
+        <div class="oi oi4"><i class="fa-solid fa-user-nurse"></i></div>
+        <div class="oi oi5"><i class="fa-solid fa-broom"></i></div>
+        <div class="oi oi6"><i class="fa-solid fa-graduation-cap"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="sec services-sec" id="services">
+    <div class="sec-hd reveal">
+      <p class="sec-tag">What We Offer</p>
+      <h2 class="sec-title">Every Professional,<br><em>One Platform</em></h2>
+    </div>
+
+    <div class="svc-marquee-outer">
+      <!-- Row 1 -->
+      <div class="svc-track" style="margin-bottom:20px;">
+        <div class="svc-card" style="--card-accent:#7c3aed;--card-glow:rgba(124,58,237,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('mechanic')">
+          <div class="svc-ico"><i class="fa-solid fa-wrench"></i></div>
+          <div class="svc-name">Mechanics</div>
+          <div class="svc-desc">Expert vehicle repair &amp; servicing at your doorstep. Any make, any model, any time.
+          </div>
+        </div>
+        <div class="svc-card" style="--card-accent:#f59e0b;--card-glow:rgba(245,158,11,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('electrician')">
+          <div class="svc-ico" style="color:#f59e0b"><i class="fa-solid fa-bolt"></i></div>
+          <div class="svc-name">Electricians</div>
+          <div class="svc-desc">Certified electrical professionals for wiring, repairs, and safe installations.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#14b8a6;--card-glow:rgba(20,184,166,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('plumber')">
+          <div class="svc-ico" style="color:#14b8a6"><i class="fa-solid fa-droplet"></i></div>
+          <div class="svc-name">Plumbers</div>
+          <div class="svc-desc">Fast, reliable plumbing for leaks, pipe work, and full bathroom installations.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#9d5ff5;--card-glow:rgba(157,95,245,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('cleaner')">
+          <div class="svc-ico" style="color:#9d5ff5"><i class="fa-solid fa-broom"></i></div>
+          <div class="svc-name">Home Cleaners</div>
+          <div class="svc-desc">Professional deep cleaning for homes, offices, and commercial spaces.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#f43f5e;--card-glow:rgba(244,63,94,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('nurse')">
+          <div class="svc-ico" style="color:#f43f5e"><i class="fa-solid fa-user-nurse"></i></div>
+          <div class="svc-name">Home Nurses</div>
+          <div class="svc-desc">Certified caregivers for at-home medical support, post-surgery recovery and elder care.
+          </div>
+        </div>
+        <div class="svc-card" style="--card-accent:#f59e0b;--card-glow:rgba(245,158,11,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('carpenter')">
+          <div class="svc-ico" style="color:#f59e0b"><i class="fa-solid fa-hammer"></i></div>
+          <div class="svc-name">Carpenters</div>
+          <div class="svc-desc">Custom furniture, fixtures, and precision woodwork for every space.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#7c3aed;--card-glow:rgba(124,58,237,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('mechanic')">
+          <div class="svc-ico"><i class="fa-solid fa-wrench"></i></div>
+          <div class="svc-name">Mechanics</div>
+          <div class="svc-desc">Expert vehicle repair &amp; servicing at your doorstep. Any make, any model, any time.
+          </div>
+        </div>
+        <div class="svc-card" style="--card-accent:#f59e0b;--card-glow:rgba(245,158,11,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('electrician')">
+          <div class="svc-ico" style="color:#f59e0b"><i class="fa-solid fa-bolt"></i></div>
+          <div class="svc-name">Electricians</div>
+          <div class="svc-desc">Certified electrical professionals for wiring, repairs, and safe installations.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#14b8a6;--card-glow:rgba(20,184,166,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('plumber')">
+          <div class="svc-ico" style="color:#14b8a6"><i class="fa-solid fa-droplet"></i></div>
+          <div class="svc-name">Plumbers</div>
+          <div class="svc-desc">Fast, reliable plumbing for leaks, pipe work, and full bathroom installations.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#9d5ff5;--card-glow:rgba(157,95,245,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('cleaner')">
+          <div class="svc-ico" style="color:#9d5ff5"><i class="fa-solid fa-broom"></i></div>
+          <div class="svc-name">Home Cleaners</div>
+          <div class="svc-desc">Professional deep cleaning for homes, offices, and commercial spaces.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#f43f5e;--card-glow:rgba(244,63,94,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('nurse')">
+          <div class="svc-ico" style="color:#f43f5e"><i class="fa-solid fa-user-nurse"></i></div>
+          <div class="svc-name">Home Nurses</div>
+          <div class="svc-desc">Certified caregivers for at-home medical support, post-surgery recovery and elder care.
+          </div>
+        </div>
+        <div class="svc-card" style="--card-accent:#f59e0b;--card-glow:rgba(245,158,11,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('carpenter')">
+          <div class="svc-ico" style="color:#f59e0b"><i class="fa-solid fa-hammer"></i></div>
+          <div class="svc-name">Carpenters</div>
+          <div class="svc-desc">Custom furniture, fixtures, and precision woodwork for every space.</div>
+        </div>
+      </div>
+      <!-- Row 2 (slightly slower for depth) -->
+      <div class="svc-track-2">
+        <div class="svc-card" style="--card-accent:#ec4899;--card-glow:rgba(236,72,153,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('tutor')">
+          <div class="svc-ico" style="color:#ec4899"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="svc-name">Tutors</div>
+          <div class="svc-desc">Qualified educators for all subjects, age groups, and learning styles.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#22c55e;--card-glow:rgba(34,197,94,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('painter')">
+          <div class="svc-ico" style="color:#22c55e"><i class="fa-solid fa-paint-roller"></i></div>
+          <div class="svc-name">Painters</div>
+          <div class="svc-desc">Interior &amp; exterior painting that transforms your space beautifully.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#06b6d4;--card-glow:rgba(6,182,212,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('ac')">
+          <div class="svc-ico" style="color:#06b6d4"><i class="fa-solid fa-snowflake"></i></div>
+          <div class="svc-name">AC Service</div>
+          <div class="svc-desc">Installation, repair and maintenance of all air conditioning systems.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#a78bfa;--card-glow:rgba(167,139,250,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('pest')">
+          <div class="svc-ico" style="color:#a78bfa"><i class="fa-solid fa-bug"></i></div>
+          <div class="svc-name">Pest Control</div>
+          <div class="svc-desc">Safe, effective pest elimination for homes, kitchens, and commercial spaces.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#fcd34d;--card-glow:rgba(252,211,77,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('driver')">
+          <div class="svc-ico" style="color:#fcd34d"><i class="fa-solid fa-car"></i></div>
+          <div class="svc-name">Drivers</div>
+          <div class="svc-desc">Professional chauffeurs for daily commutes, airport runs, and long journeys.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#fb7185;--card-glow:rgba(251,113,133,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('security')">
+          <div class="svc-ico" style="color:#fb7185"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="svc-name">Security</div>
+          <div class="svc-desc">Trained security personnel for events, residences, and commercial premises.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#ec4899;--card-glow:rgba(236,72,153,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('tutor')">
+          <div class="svc-ico" style="color:#ec4899"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="svc-name">Tutors</div>
+          <div class="svc-desc">Qualified educators for all subjects, age groups, and learning styles.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#22c55e;--card-glow:rgba(34,197,94,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('painter')">
+          <div class="svc-ico" style="color:#22c55e"><i class="fa-solid fa-paint-roller"></i></div>
+          <div class="svc-name">Painters</div>
+          <div class="svc-desc">Interior &amp; exterior painting that transforms your space beautifully.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#06b6d4;--card-glow:rgba(6,182,212,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('ac')">
+          <div class="svc-ico" style="color:#06b6d4"><i class="fa-solid fa-snowflake"></i></div>
+          <div class="svc-name">AC Service</div>
+          <div class="svc-desc">Installation, repair and maintenance of all air conditioning systems.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#a78bfa;--card-glow:rgba(167,139,250,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('pest')">
+          <div class="svc-ico" style="color:#a78bfa"><i class="fa-solid fa-bug"></i></div>
+          <div class="svc-name">Pest Control</div>
+          <div class="svc-desc">Safe, effective pest elimination for homes, kitchens, and commercial spaces.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#fcd34d;--card-glow:rgba(252,211,77,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('driver')">
+          <div class="svc-ico" style="color:#fcd34d"><i class="fa-solid fa-car"></i></div>
+          <div class="svc-name">Drivers</div>
+          <div class="svc-desc">Professional chauffeurs for daily commutes, airport runs, and long journeys.</div>
+        </div>
+        <div class="svc-card" style="--card-accent:#fb7185;--card-glow:rgba(251,113,133,.2);flex-shrink:0;width:280px;"
+          onclick="jumpFind('security')">
+          <div class="svc-ico" style="color:#fb7185"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="svc-name">Security</div>
+          <div class="svc-desc">Trained security personnel for events, residences, and commercial premises.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-sec" id="look">
+    <div class="cta-inner reveal">
+      <p class="sec-tag">Ready?</p>
+      <h2 class="cta-title">Find Your Perfect<br><em>Professional Today</em></h2>
+      <p class="cta-sub">Join thousands of happy customers who found trusted professionals in their city within minutes.
+      </p>
+      <div class="cta-btns">
+        <a class="btn-primary" onclick="openAuth('signin')">
+          <i class="fa-solid fa-magnifying-glass"></i> Search Now
+        </a>
+        <a class="btn-outline"  onclick="openAuth('register')">
+          <i class="fa-solid fa-briefcase"></i> Register as Pro
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="sec how-sec" id="how">
+    <div class="sec-hd reveal" style="text-align:center">
+      <p class="sec-tag">The Process</p>
+      <h2 class="sec-title">Simple as <em>1-2-3-4</em></h2>
+    </div>
+    <div class="steps-row">
+      <div class="step" style="transition-delay:0s">
+        <div class="step-num">01</div>
+        <div class="step-ico"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h4>Search City</h4>
+        <p>Type your city and instantly see all available verified professionals near you.</p>
+      </div>
+      <div class="step" style="transition-delay:.12s">
+        <div class="step-num">02</div>
+        <div class="step-ico"><i class="fa-solid fa-sliders"></i></div>
+        <h4>Filter Service</h4>
+        <p>Use category filters to narrow down exactly the type of professional you need.</p>
+      </div>
+      <div class="step" style="transition-delay:.24s">
+        <div class="step-num">03</div>
+        <div class="step-ico"><i class="fa-solid fa-calendar-check"></i></div>
+        <h4>Contact & Book</h4>
+        <p>Reach out directly via email. No middleman, no hidden fees, just direct access.</p>
+      </div>
+      <div class="step" style="transition-delay:.36s">
+        <div class="step-num">04</div>
+        <div class="step-ico"><i class="fa-solid fa-star"></i></div>
+        <h4>Rate & Review</h4>
+        <p>Share your experience and help build a trusted community of top professionals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="foot-logo">
+      <span><em>Service</em>Sphere</span>
+    </div>
+    <p>© 2026 ServiceSphere. Unified services platform. All rights reserved.</p>
+    <div class="foot-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ═══ AUTH MODAL ═══ -->
+  <div class="modal-backdrop" id="authBackdrop" onclick="closeAuth()"></div>
+  <div class="auth-modal" id="authModal">
+    <button class="auth-close" onclick="closeAuth()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="auth-tabs">
+      <button class="auth-tab on" id="tabSignin" onclick="switchAuthTab('signin')">Sign In</button>
+      <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Register</button>
+    </div>
+    <form class="auth-form" id="formSignin" onsubmit="doSignIn(event)">
+      <div class="auth-brand">
+        <span><em>Service</em>Sphere</span>
+      </div>
+      <p class="auth-subtitle">Welcome back. Sign in to continue.</p>
+      <div class="auth-fg">
+        <label>Email Address</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-envelope"></i><input type="email" id="siEmail"
+            placeholder="your@email.com" required /></div>
+      </div>
+      <div class="auth-fg">
+        <label>Password</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input type="password" id="siPass"
+            placeholder="Enter your password" required /><button type="button" class="eye-btn"
+            onclick="toggleEye('siPass',this)"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="auth-fg">
+        <label>Account Type</label>
+        <select id="regRole" required>
+          <option value="">Select account type</option>
+          <option value="user">User</option>
+          <option value="professional">Professional</option>
+        </select>
+      </div>
+      <div class="auth-row">
+        <label class="auth-check"><input type="checkbox" /> Remember me</label>
+        <a href="#" class="auth-link">Forgot password?</a>
+      </div>
+      <button type="submit" class="auth-submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</button>
+      <p class="auth-switch">No account? <button type="button" onclick="switchAuthTab('register')">Register
+          free</button></p>
+    </form>
+    <form class="auth-form hidden" id="formRegister" onsubmit="doRegister(event)">
+      <div class="auth-brand">
+        <span><em>Service</em>Sphere</span>
+      </div>
+      <p class="auth-subtitle">Create your free account today.</p>
+      <div class="auth-fg-row">
+        <div class="auth-fg"><label>First Name</label>
+          <div class="auth-input-wrap"><i class="fa-solid fa-user"></i><input type="text" id="regFirst"
+              placeholder="First name" required /></div>
+        </div>
+        <div class="auth-fg"><label>Last Name</label>
+          <div class="auth-input-wrap"><i class="fa-solid fa-user"></i><input type="text" id="regLast"
+              placeholder="Last name" required /></div>
+        </div>
+      </div>
+      <div class="auth-fg">
+        <label>Email Address</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-envelope"></i><input type="email" id="regEmail"
+            placeholder="your@email.com" required /></div>
+      </div>
+      <div class="auth-fg">
+        <label>Password</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input type="password" id="regPass"
+            placeholder="Min. 6 characters" required minlength="6" /><button type="button" class="eye-btn"
+            onclick="toggleEye('regPass',this)"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="auth-fg">
+        <label>Confirm Password</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input type="password" id="regPass2"
+            placeholder="Repeat password" required /></div>
+      </div>
+      <div class="auth-fg">
+        <label>Account Type</label>
+        <select id="regRole" required>
+          <option value="">Select account type</option>
+          <option value="user">User</option>
+          <option value="professional">Professional</option>
+        </select>
+      </div>
+      <label class="auth-check auth-terms"><input type="checkbox" id="regTerms" required /> I agree to the <a href="#"
+          class="auth-link">Terms &amp; Privacy Policy</a></label>
+      <button type="submit" class="auth-submit register"><i class="fa-solid fa-user-plus"></i> Create Account</button>
+      <p class="auth-switch">Already have an account? <button type="button" onclick="switchAuthTab('signin')">Sign
+          In</button></p>
+    </form>
+  </div>
+
+  <!-- ═══ SEARCH GATE POPUP ═══ -->
+  <div class="modal-backdrop" id="gateBackdrop" onclick="closeGate()"></div>
+  <div class="gate-popup" id="gatePopup">
+    <button class="gate-close" onclick="closeGate()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="gate-icon"><i class="fa-solid fa-lock"></i></div>
+    <h3 class="gate-title">Sign In or Register to Continue</h3>
+    <p class="gate-desc">Create a free account or sign in to search and connect with professionals near you.</p>
+    <div class="gate-btns">
+      <button class="gate-btn primary" onclick="closeGate();openAuth('signin')"><i
+          class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</button>
+      <button class="gate-btn outline" onclick="closeGate();openAuth('register')"><i class="fa-solid fa-user-plus"></i>
+        Register Free</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="Scripts/main.js"></script>
+</body>
+
+</html>

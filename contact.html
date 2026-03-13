@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServiceSphere — Contact</title>
+  <link rel="stylesheet" href="Styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=Syne+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="Styles/style.css">
+</head>
+
+<body>
+
+  <!-- Cursor -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+  <!-- Grain -->
+  <div id="grain"></div>
+
+  <!-- Animated BG -->
+  <div class="contact-bg"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">
+      <a href="#"><span><em>Service</em>Sphere</span></a>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#look">Find Pros</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-auth-group">
+      <button class="nav-login-btn" onclick="openAuth('signin')" id="navLoginBtn">
+        <i class="fa-solid fa-circle-user"></i> Sign In
+      </button>
+      <!-- Logged-in state (hidden by default) -->
+      <div class="nav-user-pill hidden" id="navUserPill">
+        <div class="nav-user-avatar" id="navUserAvatar">U</div>
+        <span id="navUserName">User</span>
+        <button class="nav-signout-btn" onclick="doSignOut()" title="Sign out"><i
+            class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ CONTACT PAGE ═══ -->
+  <div class="contact-page">
+
+    <!-- ─── LEFT: Profile Card ─── -->
+    <aside class="profile-card" id="profileCard">
+
+      <div class="profile-avatar-wrap">
+        <i class="fa-solid fa-circle-user"></i>
+      </div>
+
+      <div class="profile-name"><em>Service</em>Sphere</div>
+      <div class="profile-badge">Support Team</div>
+
+      <div class="profile-divider"></div>
+
+      <div class="profile-info-list">
+        <div class="pinfo-item">
+          <div class="pinfo-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="pinfo-text">
+            <span class="pinfo-label">Email</span>
+            <span class="pinfo-value">adamsameershamedshaik@gmail.com</span>
+          </div>
+        </div>
+        <div class="pinfo-item">
+          <div class="pinfo-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="pinfo-text">
+            <span class="pinfo-label">Phone</span>
+            <span class="pinfo-value">+91 8978725155</span>
+          </div>
+        </div>
+        <div class="pinfo-item">
+          <div class="pinfo-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="pinfo-text">
+            <span class="pinfo-label">Hours</span>
+            <span class="pinfo-value">Mon – Sat, 9 AM – 7 PM</span>
+          </div>
+        </div>
+        <div class="pinfo-item">
+          <div class="pinfo-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="pinfo-text">
+            <span class="pinfo-label">Location</span>
+            <span class="pinfo-value">Vijayawada, Andhra Pradesh, India</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <div class="profile-socials">
+        <a href="#" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-btn" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+
+    </aside>
+
+    <!-- ─── RIGHT: Contact Content ─── -->
+    <main class="contact-main">
+
+      <!-- Page heading -->
+      <div class="contact-hd" id="contactHd">
+        <h1>Contact</h1>
+        <div class="contact-underline"></div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-wrap" id="mapWrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.1313064163!2d78.24323495!3d17.41260335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ServiceSphere location">
+        </iframe>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-card" id="contactCard">
+        <div class="cf-title">Contact Form</div>
+        <form id="contactForm" onsubmit="sendMessage(event)" novalidate>
+          <div class="cf-row">
+            <div class="cf-input-wrap">
+              <i class="cf-ico fa-solid fa-user"></i>
+              <input type="text" id="cfName" placeholder="Full name" required autocomplete="name" />
+            </div>
+            <div class="cf-input-wrap">
+              <i class="cf-ico fa-solid fa-envelope"></i>
+              <input type="email" id="cfEmail" placeholder="Email address" required autocomplete="email" />
+            </div>
+          </div>
+          <div class="cf-textarea-wrap">
+            <i class="cf-ico fa-solid fa-message"></i>
+            <textarea id="cfMsg" placeholder="Your Message" required></textarea>
+          </div>
+          <div class="cf-footer">
+            <button type="submit" class="cf-send">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="foot-logo">
+      <span><em>Service</em>Sphere</span>
+    </div>
+    <p>© 2026 ServiceSphere. Unified services platform. All rights reserved.</p>
+    <div class="foot-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="contact.html" style="color:var(--amber)">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ═══ AUTH MODAL ═══ -->
+  <div class="modal-backdrop" id="authBackdrop" onclick="closeAuth()"></div>
+  <div class="auth-modal" id="authModal">
+    <button class="auth-close" onclick="closeAuth()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="auth-tabs">
+      <button class="auth-tab on" id="tabSignin" onclick="switchAuthTab('signin')">Sign In</button>
+      <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Register</button>
+    </div>
+    <form class="auth-form" id="formSignin" onsubmit="doSignIn(event)">
+      <div class="auth-brand">
+        <span><em>Service</em>Sphere</span>
+      </div>
+      <p class="auth-subtitle">Welcome back. Sign in to continue.</p>
+      <div class="auth-fg">
+        <label>Email Address</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-envelope"></i><input type="email" id="siEmail"
+            placeholder="your@email.com" required /></div>
+      </div>
+      <div class="auth-fg">
+        <label>Password</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input type="password" id="siPass"
+            placeholder="Enter your password" required /><button type="button" class="eye-btn"
+            onclick="toggleEye('siPass',this)"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="auth-fg">
+        <label>Account Type</label>
+        <select id="regRole" required>
+          <option value="">Select account type</option>
+          <option value="user">User</option>
+          <option value="professional">Professional</option>
+        </select>
+      </div>
+      <div class="auth-row">
+        <label class="auth-check"><input type="checkbox" /> Remember me</label>
+        <a href="#" class="auth-link">Forgot password?</a>
+      </div>
+      <button type="submit" class="auth-submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</button>
+      <p class="auth-switch">No account? <button type="button" onclick="switchAuthTab('register')">Register
+          free</button></p>
+    </form>
+    <form class="auth-form hidden" id="formRegister" onsubmit="doRegister(event)">
+      <div class="auth-brand">
+        <span><em>Service</em>Sphere</span>
+      </div>
+      <p class="auth-subtitle">Create your free account today.</p>
+      <div class="auth-fg-row">
+        <div class="auth-fg"><label>First Name</label>
+          <div class="auth-input-wrap"><i class="fa-solid fa-user"></i><input type="text" id="regFirst"
+              placeholder="First name" required /></div>
+        </div>
+        <div class="auth-fg"><label>Last Name</label>
+          <div class="auth-input-wrap"><i class="fa-solid fa-user"></i><input type="text" id="regLast"
+              placeholder="Last name" required /></div>
+        </div>
+      </div>
+      <div class="auth-fg">
+        <label>Email Address</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-envelope"></i><input type="email" id="regEmail"
+            placeholder="your@email.com" required /></div>
+      </div>
+      <div class="auth-fg">
+        <label>Password</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input type="password" id="regPass"
+            placeholder="Min. 6 characters" required minlength="6" /><button type="button" class="eye-btn"
+            onclick="toggleEye('regPass',this)"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="auth-fg">
+        <label>Confirm Password</label>
+        <div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input type="password" id="regPass2"
+            placeholder="Repeat password" required /></div>
+      </div>
+      <div class="auth-fg">
+        <label>Account Type</label>
+        <select id="regRole" required>
+          <option value="">Select account type</option>
+          <option value="user">User</option>
+          <option value="professional">Professional</option>
+        </select>
+      </div>
+      <label class="auth-check auth-terms"><input type="checkbox" id="regTerms" required /> I agree to the <a href="#"
+          class="auth-link">Terms &amp; Privacy Policy</a></label>
+      <button type="submit" class="auth-submit register"><i class="fa-solid fa-user-plus"></i> Create Account</button>
+      <p class="auth-switch">Already have an account? <button type="button" onclick="switchAuthTab('signin')">Sign
+          In</button></p>
+    </form>
+  </div>
+
+  <!-- ═══ SEARCH GATE POPUP ═══ -->
+  <div class="modal-backdrop" id="gateBackdrop" onclick="closeGate()"></div>
+  <div class="gate-popup" id="gatePopup">
+    <button class="gate-close" onclick="closeGate()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="gate-icon"><i class="fa-solid fa-lock"></i></div>
+    <h3 class="gate-title">Sign In or Register to Continue</h3>
+    <p class="gate-desc">Create a free account or sign in to search and connect with professionals near you.</p>
+    <div class="gate-btns">
+      <button class="gate-btn primary" onclick="closeGate();openAuth('signin')"><i
+          class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</button>
+      <button class="gate-btn outline" onclick="closeGate();openAuth('register')"><i class="fa-solid fa-user-plus"></i>
+        Register Free</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="Scripts/main.js"></script>
+
+</body>
+</html>

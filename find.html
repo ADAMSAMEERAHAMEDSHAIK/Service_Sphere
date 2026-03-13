@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServiceSphere — Every Service, One Place</title>
+  <link rel="stylesheet" href="Styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=Syne+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <!-- Cursor -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+  <!-- Grain -->
+  <div id="grain"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">
+      <span><em>Service</em>Sphere</span>
+    </div>
+    <div class="nav-auth-group">
+      <button class="nav-login-btn" onclick="openAuth('signin')" id="navLoginBtn">
+        <i class="fa-solid fa-circle-user"></i> Sign In
+      </button>
+      <!-- Logged-in state (hidden by default) -->
+      <div class="nav-user-pill hidden" id="navUserPill">
+        <div class="nav-user-avatar" id="navUserAvatar">U</div>
+        <span id="navUserName">User</span>
+        <button class="nav-signout-btn" onclick="doSignOut()" title="Sign out"><i
+            class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ FIND ═══ -->
+  <section class="sec find-sec" id="find">
+    <div class="sec-hd reveal">
+      <p class="sec-tag">Search Professionals</p>
+      <h2 class="sec-title">Find Your <em>Expert</em></h2>
+    </div>
+
+    <div class="chips-row reveal" id="chipRow">
+      <button class="chip on" data-s="all" onclick="setFilter(this,'all')">All Services</button>
+      <button class="chip" data-s="mechanic" onclick="setFilter(this,'mechanic')"><i class="fa-solid fa-wrench"></i>
+        Mechanics</button>
+      <button class="chip" data-s="electrician" onclick="setFilter(this,'electrician')"><i class="fa-solid fa-bolt"></i>
+        Electricians</button>
+      <button class="chip" data-s="plumber" onclick="setFilter(this,'plumber')"><i class="fa-solid fa-droplet"></i>
+        Plumbers</button>
+      <button class="chip" data-s="cleaner" onclick="setFilter(this,'cleaner')"><i class="fa-solid fa-broom"></i>
+        Cleaners</button>
+      <button class="chip" data-s="carpenter" onclick="setFilter(this,'carpenter')"><i class="fa-solid fa-hammer"></i>
+        Carpenters</button>
+      <button class="chip" data-s="tutor" onclick="setFilter(this,'tutor')"><i class="fa-solid fa-graduation-cap"></i>
+        Tutors</button>
+      <button class="chip" data-s="nurse" onclick="setFilter(this,'nurse')"><i class="fa-solid fa-user-nurse"></i>
+        Nurses</button>
+      <button class="chip" data-s="painter" onclick="setFilter(this,'painter')"><i class="fa-solid fa-paint-roller"></i>
+        Painters</button>
+      <button class="chip" data-s="pest" onclick="setFilter(this,'pest')"><i class="fa-solid fa-bug"></i> Pest
+        Control</button>
+      <button class="chip" data-s="ac" onclick="setFilter(this,'ac')"><i class="fa-solid fa-snowflake"></i> AC
+        Service</button>
+      <button class="chip" data-s="driver" onclick="setFilter(this,'driver')"><i class="fa-solid fa-car"></i>
+        Drivers</button>
+      <button class="chip" data-s="security" onclick="setFilter(this,'security')"><i
+          class="fa-solid fa-shield-halved"></i> Security</button>
+    </div>
+
+    <div class="search-row reveal">
+      <div class="s-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="cityIn" placeholder="Enter your city name..."
+          onkeydown="if(event.key==='Enter')doSearch()" />
+      </div>
+      <button class="s-go" onclick="doSearch()">Search &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+    <div id="results-wrap"></div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="foot-logo">
+      <span><em>Service</em>Sphere</span>
+    </div>
+    <p>© 2026 ServiceSphere. Unified services platform. All rights reserved.</p>
+    <div class="foot-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <div id="toast"></div>
+  <script src="Scripts/main.js"></script>
+</body>
+
+</html>
